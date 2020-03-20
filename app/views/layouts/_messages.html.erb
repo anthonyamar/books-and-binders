@@ -1,0 +1,21 @@
+<% flash.each do |key, value| %>
+  <% unless key == "reservations_errors" %>
+    <div id="flash" class="alert alert-<%= key %> alert-dismissible fade show animated fadeIn" role="alert">
+			<button type="button" class="close no-underline" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+			<strong>
+				<% if key == "success" %>
+					<i class="fas fa-thumbs-up fa-lg"></i> FÉLICITATIONS ! 
+				<% elsif key == "danger" || key == "alert" %>
+					<i class="fas fa-ban fa-lg"></i> ATTENTION !
+				<% elsif key == "warning" %>
+					<i class="fas fa-bullhorn fa-lg"></i> RAPPEL : 
+				<% else %>
+					<i class="fas fa-info-circle fa-lg"></i>
+				<% end %>
+			</strong>
+			<%= value %>
+		</div>
+  <% end %>
+<% end %>
