@@ -1,9 +1,9 @@
 class Book < ApplicationRecord
   
   # ============= constants/enums =================
-  enum buying_condition: { new: 0, second_hand: 1, gift: 2, donation: 3 }
-  enum condition: { new: 0, very_good: 1, good: 2, average: 3, bad: 4, very_bad: 5, unreadable: 6 }
-  enum type: { physical: 0, numeric: 1, audio: 2 }
+  enum buying_condition: { brand_new: 0, second_hand: 1, gift: 2, donation: 3 }
+  enum actual_condition: { very_good: 0, good: 1, regular: 2, bad: 3, very_bad: 4, unreadable: 5 }
+  enum book_type: { physical: 0, numeric: 1, audio: 2 }
   enum binding: { paperback: 0, hardcover: 1, cloth: 2, cardboard: 3, leather: 4, vellum: 5, other: 6 }
   
   
@@ -15,9 +15,9 @@ class Book < ApplicationRecord
   
   # ============= validations =================
   
-  validates :title, :author, :price, :read, 
-    :page_count, :buying_condition, :type, 
-    :category, :condition, presence: true
+  validates :title, :author, :price, 
+    :page_count, :buying_condition, :book_type, 
+    :category, :actual_condition, :binding, presence: true
   
   validates :title, length: { in: 2..100 }
   validates :author, length: { in: 2..100 }
@@ -30,13 +30,13 @@ class Book < ApplicationRecord
   validates :read, inclusion: { in: [true, false] }
   validates :page_count, numericality: { only_integer: true, greater_than: 0 }
   validates :buying_condition, numericality: { only_integer: true, in: buying_conditions.size }
-  validates :buyed_from, lenght: { in: 2..100 }
-  validates :actual_condition, numericality: { only_integer: true, in: conditions.size }
-  validates :book_type, numericality: { only_integer: true, in: types.size }
+  validates :buyed_from, length: { in: 2..100 }
+  validates :actual_condition, numericality: { only_integer: true, in: actual_conditions.size }
+  validates :book_type, numericality: { only_integer: true, in: book_types.size }
   validates :binding, numericality: { only_integer: true, in: bindings.size }
   validates :language, inclusion: { in: I18n.t("languages") }
   validates :category, inclusion: { in: I18n.t("categories") }
-  validates :text, length: { in: 2..10000 }
+  validates :summary, length: { in: 2..10000 }
   
   # ============= scopes =================
   
