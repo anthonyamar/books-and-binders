@@ -1,11 +1,9 @@
 <div class="container">
-
   <div class="jumbotron mt-5">
-    <h1 class="display-4">Bienvenue dans votre bibliothèque !</h1>
+    <h1 class="display-4">Bienvenue dans votre bibliothèque <%= current_user&.first_name %> !</h1>
     <p class="lead">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p>
     <hr class="my-4">
     <a class="btn btn-primary" href="#" role="button">Ajouter un livre</a>
     <a class="btn btn-info" href="#" role="button">Voir mes livres</a>
   </div>
-
 </div>
