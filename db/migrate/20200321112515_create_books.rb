@@ -9,12 +9,13 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.date :buyed_at
       t.datetime :started_at
       t.datetime :finished_at
-      t.boolean :read
-      t.integer :page_count
-      t.string :buying_condition
+      t.boolean :read, default: false
+      t.integer :page_count, null: false
+      t.integer :buying_condition, default: 0, null: false
       t.string :buyed_from
-      t.string :condition
-      t.string :type
+      t.integer :actual_condition, default: 0, null: false
+      t.integer :book_type, default: 0, null: false
+      t.integer :binding, default: 0, null: false
       t.string :language
       t.string :category
       t.text :summary
