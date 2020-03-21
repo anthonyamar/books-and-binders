@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="container">
-    <div class="jumbotron mt-5">
+    <div class="jumbotron mt-5 shadow">
       <h1 class="display-4">Bienvenue dans votre bibliothèque <%= current_user&.first_name %> !</h1>
       <p class="lead">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p>
       <hr class="my-4">
@@ -11,7 +11,7 @@
   </div>
 <% else %>
   <div class="container">
-    <div class="jumbotron mt-5">
+    <div class="jumbotron mt-5 shadow">
       <h1 class="display-4">Connectez-vous</h1>
       <p class="lead">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p>
     </div>
