@@ -46,7 +46,7 @@
     <%= f.input :language, collection: I18n.t("languages") %><br>
 
     <label>Catégorie</label>
-    <%= f.input :category, collection: I18n.t("categories") %><br>
+    <%= f.input :category, collection: I18n.t("categories").sort %><br>
     
     <%= f.hidden_field :user_id, value: current_user.id %>
     
