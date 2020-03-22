@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-  <a class="navbar-brand" href="/">MyLibrary</a>
+  <a class="navbar-brand" href="/"><i class="fas fa-book text-info"></i> Books &amp; Binders</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,6 +8,7 @@
     <ul class="navbar-nav mr-auto"></ul>
     <form class="form-inline my-2 my-lg-0">
       <% if user_signed_in? %>
+        <%= link_to "Ajouter un livre", new_book_path, class: "btn btn-success mr-2" %>
         <%= link_to "Mon profil", edit_user_registration_path, class: "btn btn-outline-info my-2 my-sm-0 mr-2" %>
         <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger my-2 my-sm-0" %>
       <% else %>

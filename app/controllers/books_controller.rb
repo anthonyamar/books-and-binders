@@ -20,7 +20,7 @@ class BooksController < ApplicationController
 
     if @book.save!
       respond_to do |format|
-        format.html { redirect_to(book_path(@book)) }
+        format.html { redirect_to(new_book_path) }
         flash[:success] = "Le livre #{@book.title} a bien été ajouté à votre bibliothèque."
       end
     else
