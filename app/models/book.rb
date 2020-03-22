@@ -24,7 +24,7 @@ class Book < ApplicationRecord
   
   validates :title, length: { in: 2..100 }
   validates :author, length: { in: 2..100 }
-  validates :editor, length: { in: 2..100 }, allow_nil: true
+  validates :editor, length: { in: 2..100 }, allow_blank: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
   validates_date :release_date, on_or_before: :today, allow_nil: true
   validates_date :buyed_at, on_or_before: :today, allow_nil: true
