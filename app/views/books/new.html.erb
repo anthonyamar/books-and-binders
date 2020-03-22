@@ -16,7 +16,7 @@
     <%= f.input :price %><br>
 
     <label>Date de sortie</label>
-    <%= f.input :release_date, start_year: 1600, end_year: Date.today.year, order: [:day, :month, :year], selected: Date.today - 1.year %><br>
+    <%= f.input :release_date, start_year: 1600, end_year: Date.today.year, discard_day: true, order: [:day, :month, :year], selected: Date.today - 1.year %><br>
     
     <label>Date d'achat</label>
     <%= f.input :buyed_at, start_year: Date.today.year - 20, end_year: Date.today.year, order: [:day, :month, :year], selected: Date.today %><br>
