@@ -37,9 +37,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.update(book_params)
-
-    if @book.save!
+    if @book.update(book_params)
       respond_to do |format|
         format.html { redirect_to(book_path(@book)) }
         flash[:success] = "Le livre #{@book.title} a bien été édité."

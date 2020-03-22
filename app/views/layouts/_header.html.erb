@@ -9,6 +9,7 @@
     <form class="form-inline my-2 my-lg-0">
       <% if user_signed_in? %>
         <%= link_to "Ajouter un livre", new_book_path, class: "btn btn-success mr-2" %>
+        <%= link_to "Ma bibliothèque", books_path, class: "btn btn-info mr-2" %>
         <%= link_to "Mon profil", edit_user_registration_path, class: "btn btn-outline-info my-2 my-sm-0 mr-2" %>
         <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger my-2 my-sm-0" %>
       <% else %>

@@ -1,2 +1,55 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="container my-5">
+  <h1>Éditer <%= @book.title %></h1><br>
+  <%= simple_form_for @book, url: book_path(@book), method: :put, 
+    defaults: { label: false, input_html: { class: "form-control shadow-sm"} }, input_html: { class: "form-group" } do |f| %>
+
+    <label>Titre</label>
+    <%= f.input :title %><br>
+
+    <label>Auteur</label>
+    <%= f.input :author %><br>
+
+    <label>Edition</label>
+    <%= f.input :editor %><br>
+
+    <label>Prix</label>
+    <%= f.input :price %><br>
+
+    <label>Date de sortie</label>
+    <%= f.input :release_date, start_year: 1600, end_year: Date.today.year, discard_day: true, order: [:day, :month, :year] %><br>
+    
+    <label>Date d'achat</label>
+    <%= f.input :buyed_at, start_year: Date.today.year - 20, end_year: Date.today.year, order: [:day, :month, :year] %><br>
+
+    <label>Lu ?</label>
+    <%= f.input :read, as: :select, collection: [true, false] %><br>
+
+    <label>Nombre de page</label>
+    <%= f.input :page_count %><br>
+
+    <label>Condition d'achat</label>
+    <%= f.input :buying_condition, collection: Book.buying_conditions.keys %><br>
+
+    <label>Acheté à/chez</label>
+    <%= f.input :buyed_from %><br>
+
+    <label>Condition actuelle</label>
+    <%= f.input :actual_condition, collection: Book.actual_conditions.keys %><br>
+
+    <label>Type de livre</label>
+    <%= f.input :book_type, collection: Book.book_types.keys %><br>
+
+    <label>Reliure</label>
+    <%= f.input :binding, collection: Book.bindings.keys %><br>
+
+    <label>Language</label>
+    <%= f.input :language, collection: I18n.t("languages") %><br>
+
+    <label>Catégorie</label>
+    <%= f.input :category, collection: I18n.t("categories").sort %><br>
+    
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    
+    <%= f.submit "Éditer le livre", class: "btn btn-success btn-lg btn-block" %>
+  <% end %>
+</div>
