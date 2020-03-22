@@ -16,14 +16,13 @@
     <%= f.input :price %><br>
 
     <label>Date de sortie</label>
-
     <%= f.input :release_date, start_year: 1600, end_year: Date.today.year, order: [:day, :month, :year], selected: Date.today - 1.year %><br>
     
     <label>Date d'achat</label>
     <%= f.input :buyed_at, start_year: Date.today.year - 20, end_year: Date.today.year, order: [:day, :month, :year], selected: Date.today %><br>
 
     <label>Lu ?</label>
-    <%= f.input :read %>
+    <%= f.input :read, as: :select, collection: [true, false] %><br>
 
     <label>Nombre de page</label>
     <%= f.input :page_count %><br>
