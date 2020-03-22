@@ -24,16 +24,16 @@ class Book < ApplicationRecord
   
   validates :title, length: { in: 2..100 }
   validates :author, length: { in: 2..100 }
-  validates :editor, length: { in: 2..100 }
-  validates :price, numericality: { greater_than_or_equal_to: 0 }
-  validates_date :release_date, on_or_before: :today
-  validates_date :buyed_at, on_or_before: :today
+  validates :editor, length: { in: 2..100 }, allow_nil: true
+  validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
+  validates_date :release_date, on_or_before: :today, allow_nil: true
+  validates_date :buyed_at, on_or_before: :today, allow_nil: true
   validates_datetime :started_at, on_or_before: :today, allow_nil: true
   validates_datetime :finished_at, after: :started_at, allow_nil: true
   validates :read, inclusion: { in: [true, false] }
   validates :page_count, numericality: { only_integer: true, greater_than: 0 }
   validates :buying_condition, inclusion: { in: buying_conditions.keys }
-  validates :buyed_from, length: { in: 2..100 }
+  validates :buyed_from, length: { in: 2..100 }, allow_nil: true
   validates :actual_condition, inclusion: { in: actual_conditions.keys }
   validates :book_type, inclusion: { in: book_types.keys }
   validates :binding, inclusion: { in: bindings.keys }
