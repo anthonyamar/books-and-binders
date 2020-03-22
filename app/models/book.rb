@@ -33,13 +33,13 @@ class Book < ApplicationRecord
   validates :read, inclusion: { in: [true, false] }
   validates :page_count, numericality: { only_integer: true, greater_than: 0 }
   validates :buying_condition, inclusion: { in: buying_conditions.keys }
-  validates :buyed_from, length: { in: 2..100 }, allow_nil: true
+  validates :buyed_from, length: { in: 2..100 }, allow_blank: true
   validates :actual_condition, inclusion: { in: actual_conditions.keys }
   validates :book_type, inclusion: { in: book_types.keys }
   validates :binding, inclusion: { in: bindings.keys }
   validates :language, inclusion: { in: I18n.t("languages") }
   validates :category, inclusion: { in: I18n.t("categories") }
-  validates :summary, length: { in: 2..10000 }, allow_nil: true
+  validates :summary, length: { in: 2..10000 }, allow_blank: true
   
   # ============= scopes =================
   
