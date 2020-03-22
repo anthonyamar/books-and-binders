@@ -16,9 +16,15 @@
         <tr>
           <th scope="row"><%= book.id %></th>
           <th>
-            <%= link_to "Détail", book_path(book), class: "badge badge-success" %>
-            <%= link_to "Éditer", edit_book_path(book), class: "badge badge-primary" %>
-            <%= link_to "Supprimer", book_path(book), method: :delete, class: "badge badge-danger" %>
+            <%= link_to book_path(book) do %>
+              <i class="fas fa-info-circle text-success"></i>
+            <% end %>
+            <%= link_to edit_book_path(book) do %>
+              <i class="fas fa-edit text-primary"></i>
+            <% end %>
+            <%= link_to book_path(book), method: :delete do %>
+              <i class="fas fa-trash text-danger"></i>
+            <% end %>
           </th>
           <td><%= book.title %></td>
           <td><%= book.author %></td>
