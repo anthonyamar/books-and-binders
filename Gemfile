@@ -13,6 +13,7 @@ gem "react-rails", "~> 2.6"
 gem "devise"
 gem "faker"
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
+gem "simple_form"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

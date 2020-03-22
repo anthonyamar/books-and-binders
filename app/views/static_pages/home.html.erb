@@ -5,8 +5,8 @@
       <p class="lead">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p>
       <hr class="my-4">
       <p>Vous avez actuellement <%= current_user.books.size %> livres dans votre bibliothèque.</p>
-      <a class="btn btn-primary" href="#" role="button">Ajouter un livre</a>
-      <a class="btn btn-info" href="#" role="button">Voir mes livres</a>
+      <%= link_to "Ajouter un livre", new_book_path, class: "btn btn-success" %>
+      <%= link_to "Voir mes livres", books_path, class: "btn btn-info" %>
     </div>
   </div>
 <% else %>

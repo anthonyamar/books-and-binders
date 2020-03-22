@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :user_must_own_the_book, only: [:show, :new, :edit, :update, :destroy]
+  before_action :user_must_own_the_book, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = current_user.books
@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(band_params)
+    @book = Book.new(book_params)
 
     if @book.save!
       respond_to do |format|
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.update(band_params)
+    @book = Book.update(book_params)
 
     if @book.save!
       respond_to do |format|
@@ -76,10 +76,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-  def band_params
-    params.require(:band_form).permit(
-      :title, :author, :editor, :price, :release_date, :buyed_at, :started_at, :finished_at, :read, :page_count, :buying_condition, :buyed_from, :condition, :type, :language, :category, :summary,
-      :image
+  def book_params
+    params.require(:book).permit(
+      :title, :author, :editor, :price, :release_date, :buyed_at, :started_at, :finished_at, :read, :page_count, :buying_condition, :buyed_from, :actual_condition, :book_type, :binding, :language, :category, :summary, :user_id, :image
     )
   end
 

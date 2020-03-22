@@ -19,5 +19,7 @@ var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
-import 'bootstrap'
-import './src/application.scss'
+import 'bootstrap';
+import "@fortawesome/fontawesome-free";
+import '../stylesheets/application.scss';
+import './custom';

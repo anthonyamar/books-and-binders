@@ -1,2 +1,4 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="container mt-5">
+  <h1><%= @book.title %></h1>
+  <h3>Ajouté le <%= @book.created_at.strftime("%d/%m/%Y") %></h3>
+</div>
