@@ -43,6 +43,13 @@ class Book < ApplicationRecord
   
   # ============= scopes =================
   
+  # Read books
+  # Unread books
+  # Book from categories (pass an array)
+  # Book except categories (pass an array)
+  # Book from language
+  # Book except language
+  
   # ============= class methods =================
   
   # ============= before/after =================
