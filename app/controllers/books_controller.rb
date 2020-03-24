@@ -9,6 +9,7 @@ class BooksController < ApplicationController
   end
 
   def show
+#    render component: 'Book', props: { book: @book }
   end
 
   def new

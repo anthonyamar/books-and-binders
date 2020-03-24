@@ -1,4 +1,5 @@
 <div class="container mt-5">
-  <h1><%= @book.title %></h1>
-  <h3>Ajouté le <%= @book.created_at.strftime("%d/%m/%Y") %></h3>
+  <%= react_component "book/show/Heading", { book: @book.to_json } %>
 </div>
+
+
