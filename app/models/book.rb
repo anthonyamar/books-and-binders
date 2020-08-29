@@ -40,7 +40,7 @@ class Book < ApplicationRecord
   validates :language, inclusion: { in: I18n.t("languages") }
   validates :category, inclusion: { in: I18n.t("categories") }
   validates :summary, length: { in: 2..10000 }, allow_blank: true
-  validates :isbn, format: { with: /(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)/, message: "ISBN must be 10 or 13 numbers long and start with 978 or 979" }
+  validates :isbn, format: { with: /(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)/, message: "ISBN must be 10 or 13 numbers long and start with 978 or 979" }, allow_blank: true
   validates :weight_in_grams, numericality: { greater_than: 0, only_integer: true }, allow_blank: true
   
   # ============= scopes =================
