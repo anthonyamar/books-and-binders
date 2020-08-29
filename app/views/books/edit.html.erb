@@ -11,7 +11,10 @@
 
     <label>Edition</label>
     <%= f.input :editor %><br>
-
+    
+    <label>ISBN</label>
+    <%= f.input :isbn %><br>
+    
     <label>Prix</label>
     <%= f.input :price %><br>
 
@@ -26,6 +29,9 @@
 
     <label>Nombre de page</label>
     <%= f.input :page_count %><br>
+    
+    <label>Poid en gramme</label>
+    <%= f.input :weight_in_grams %><br>
 
     <label>Condition d'achat</label>
     <%= f.input :buying_condition, collection: Book.buying_conditions.keys %><br>

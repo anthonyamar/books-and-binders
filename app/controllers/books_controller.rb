@@ -26,7 +26,7 @@ class BooksController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_back(fallback_location: edit_book_path) }
+        format.html { redirect_back(fallback_location: new_book_path) }
         @book.errors.each do |attr, msg|
           flash[:danger] = "#{attr} -> #{msg}"
         end
@@ -77,7 +77,7 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(
-      :title, :author, :editor, :price, :release_date, :buyed_at, :started_at, :finished_at, :read, :page_count, :buying_condition, :buyed_from, :actual_condition, :book_type, :binding, :language, :category, :summary, :user_id, :image
+      :title, :author, :editor, :price, :release_date, :buyed_at, :started_at, :finished_at, :read, :page_count, :buying_condition, :buyed_from, :actual_condition, :book_type, :binding, :language, :category, :summary, :user_id, :image, :isbn, :weight_in_grams
     )
   end
 

@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <%= react_component "book/show/Heading", { book: @book.to_json } %>
+  <%= link_to "Editer", edit_book_path(@book), class: "btn btn-primary" %>
 </div>
 
 
