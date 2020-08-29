@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <h1>Ma bibliothèque</h1> 
   <div class="table-responsive mt-5">
-    <table class="table table-bordered table-hover">
+    <table id="book-index" class="table table-bordered table-hover">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -35,3 +35,9 @@
     </table>
   </div>
 </div>
+
+<script>
+  $(document).ready( function () {
+    $('#book-index').DataTable();
+  });
+</script>

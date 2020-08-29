@@ -5,17 +5,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   </head>
 
   <body>
     <%= render "layouts/header" %>
     <%= render "layouts/messages" %>
     <%= yield %>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
   </body>
 </html>
