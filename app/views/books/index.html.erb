@@ -34,6 +34,27 @@
       </tbody>
     </table>
   </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 my-5">
+        <h3 class="mb-5">Category repartition</h3>
+        <%= bar_chart @facade.category_repartition.sort_by { |k, v| v }.reverse, height: "1000px" %>
+      </div>
+      <div class="col-sm-6 my-5">
+        <h3 class="mb-5">Language repartition</h3>
+        <%= pie_chart @facade.language_repartition %>
+      </div>
+      <div class="col-sm-6 my-5">
+        <h3 class="mb-5">Book type repartition</h3>
+        <%= pie_chart @facade.book_type_repartition %>
+      </div>
+      <div class="col-sm-6 my-5">
+        <h3 class="mb-5">Binding repartition</h3>
+        <%= pie_chart @facade.binding_repartition %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
