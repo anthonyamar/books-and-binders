@@ -28,6 +28,7 @@
       language: I18n.t("languages").sample,
       category: I18n.t("categories").sample,
       summary: Faker::Hipster.paragraph(sentence_count: rand(2..8)),
+      weight_in_grams: rand(45..5000),
       user_id: user.id)
   end
   

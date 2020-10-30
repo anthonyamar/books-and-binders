@@ -45,6 +45,11 @@ class Book < ApplicationRecord
   
   # ============= scopes =================
   
+  scope :read, -> { where(read: true) }
+  scope :unread, -> { where(read: false) }
+  scope :in_categories, -> (categories) { where(category: categories) }
+  scope :in_languages, -> (languages) { where(language: languages) }
+  
   # Read books
   # Unread books
   # Book from categories (pass an array)
