@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:public_profile]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :user_must_own_the_book, only: [:show, :edit, :update, :destroy]
 
@@ -11,6 +11,13 @@ class BooksController < ApplicationController
 
   def show
 #    render component: 'Book', props: { book: @book }
+  end
+  
+  def public_profile
+    @user = User.find_by(username: params[:username])
+    @facade = BookFacade.new(@user)
+    @books = @user.books
+    render layout: "public_profile"
   end
 
   def new

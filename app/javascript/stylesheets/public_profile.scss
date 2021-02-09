@@ -1,0 +1,122 @@
+.public-profile {
+  $background-primary: #202020;
+  $text-accent: #52BAE0;
+  $text-accent-hover: #74C8E7;
+  $text-title: #FFF;
+  $text-normal: #D0D0D0;
+  $text-muted: #BBBDBF;
+  $text-code: #FA8682;
+  $interactive-accent: #52BAE0;
+  $interactive-complementary: #E09D00;
+  $interactive-tag: #A66064;
+  $interactive-accent-rgb: 116, 200, 231;
+  $interactive-accent-hover: #74C8E7;
+  $interactive-success: #69F593;
+  $fluro-yellow-rgb: 255, 255, 0;
+  $fluro-pink-rgb: 255, 0, 255;
+  $fluro-red-rgb: 255, 0, 0;
+  $fluro-blue-rgb: 80, 190, 255;
+  $fluro-green-rgb: 0, 255, 0;
+  $text-highlight-rgb: $fluro-blue-rgb;
+  $text-highlight-bg: none; /* To avoid having too times the mark */
+  $node-accent: #52BAE0;
+  $node-asset: #C28D13;
+  $node-tag: #A66064;
+
+  color: $text-normal;
+  background-color: $background-primary;
+  font-family: 'Inter', sans-serif !important;
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 800;
+    color: $text-title;
+  }
+
+  code {
+    color: $text-code !important;
+    background-color: black;
+  }
+
+  blockquote {
+    border-left-color: $text-accent-hover !important;
+  }
+
+  ul, ul ul, ol ul {
+    list-style: none; /* Remove default bullets */
+  }
+
+  ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: $text-accent; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+
+  table.dataTable tbody tr {
+    background-color: inherit;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background-color: inherit !important;
+    background: inherit !important;
+    border: none;
+    color: $text-title !important;
+    border: 1px solid #111;
+    background-color: #585858;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111));
+    background: -webkit-linear-gradient(top, #585858 0%, #111 100%);
+    background: -moz-linear-gradient(top, #585858 0%, #111 100%);
+    background: -ms-linear-gradient(top, #585858 0%, #111 100%);
+    background: -o-linear-gradient(top, #585858 0%, #111 100%);
+    background: linear-gradient(to bottom, #585858 0%, #111 100%);
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: inherit !important;
+    color: $text-normal !important;
+  }
+
+  .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+    color: $text-normal !important;
+  }
+
+  table.dataTable thead th, table.dataTable thead td, table.dataTable.no-footer {
+    border-color: $text-accent;
+  }
+
+  .dataTables_wrapper .dataTables_filter input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    color: $text-normal;
+    font-family: 'Inter', sans-serif;
+    padding: 5px 14px;
+    padding-left: 14px;
+    font-size: 16px;
+    border-radius: 4px;
+    outline: none;
+    height: 30px;
+  }
+  
+  .dataTables_length select {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: $text-normal;
+    padding: 5px 14px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.8);;
+    border-radius: 4px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(0, 0, 0, 0.3);;
+    background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23483699%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E);
+    background-repeat: no-repeat, repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+  }
+}

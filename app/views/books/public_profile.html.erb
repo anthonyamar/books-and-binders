@@ -1,0 +1,87 @@
+<div class="container mt-5">
+  <h1><%= @user.username %>'s library</h1> 
+  <div class="table-responsive mt-5">
+    <table id="book-index" class="">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.author %></td>
+          <td><%= book.category %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 my-5">
+        <h3 class="mb-5">Category repartition</h3>
+        <%= bar_chart @facade.category_repartition.sort_by { |k, v| v }.reverse, height: "1000px", colors: ["#52BAE0"], library: {
+            legend: {
+              labels: {
+                fontColor: "#D0D0D0"
+              }
+            },
+            scales: {
+              yAxes: [
+                {
+                  ticks: { fontColor: "#D0D0D0" },
+                  scaleLabel: { fontColor: "#D0D0D0" }
+                }
+              ],
+              xAxes: [
+                {
+                  ticks: { fontColor: "#D0D0D0" }
+                }
+              ]
+            }
+          } %>
+      </div>
+      <div class="col-sm-6 my-5">
+        <h3 class="mb-5">Language repartition</h3>
+        <%= pie_chart @facade.language_repartition, library: {
+            legend: {
+              labels: {
+                fontColor: "#D0D0D0"
+              }
+            },
+          } %>
+      </div>
+      <div class="col-sm-6 my-5">
+        <h3 class="mb-5">Book type repartition</h3>
+        <%= pie_chart @facade.book_type_repartition, library: {
+            legend: {
+              labels: {
+                fontColor: "#D0D0D0"
+              }
+            },
+          } %>
+      </div>
+      <div class="col-sm-6 my-5">
+        <h3 class="mb-5">Binding repartition</h3>
+        <%= pie_chart @facade.binding_repartition, library: {
+            legend: {
+              labels: {
+                fontColor: "#D0D0D0"
+              }
+            },
+          } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready( function () {
+    $('#book-index').DataTable();
+  });
+</script>
