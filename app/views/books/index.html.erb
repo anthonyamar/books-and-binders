@@ -25,6 +25,9 @@
             <%= link_to book_path(book), method: :delete do %>
               <i class="fas fa-trash text-danger"></i>
             <% end %>
+            <%= link_to book_download_md_note_path(book), target: "_blank" do %>
+              <i class="fas fa-download text-primary"></i>
+            <% end %>
           </th>
           <td><%= book.title %></td>
           <td><%= book.author %></td>

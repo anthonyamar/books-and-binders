@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :books
   
   get '/:username/books', to: "books#public_profile", as: "user_public_profile"
+  get '/books/:id/download_md_note', to: "books#download_md_note", as: "book_download_md_note"
   
 end

@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   before_action :authenticate_user!, except: [:public_profile]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :download_md_note]
   before_action :user_must_own_the_book, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -76,7 +76,11 @@ class BooksController < ApplicationController
       end
     end
   end
-
+  
+  def download_md_note
+    send_data BookToMarkdown.new(@book).perform, filename: "#{@book.title} - #{@book.author}.md"
+  end
+  
   private
 
   def set_book

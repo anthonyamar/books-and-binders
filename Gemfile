@@ -16,6 +16,8 @@ gem "faker"
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
 gem "simple_form"
 gem "chartkick"
+gem "rubyzip"
+gem "zipline"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
