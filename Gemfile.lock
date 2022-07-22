@@ -191,7 +191,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     timeliness (0.4.4)
-    tzinfo (1.2.9)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     validates_timeliness (5.0.0)
       timeliness (>= 0.3.10, < 1)
