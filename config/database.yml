@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: mylibrary_production
-  username: mylibrary
-  password: <%= ENV['MYLIBRARY_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
