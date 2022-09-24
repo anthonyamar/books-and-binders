@@ -4,20 +4,21 @@
   "dependencies": {
     "@babel/preset-react": "^7.9.0",
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "@popperjs/core": "^2.11.6",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.3.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "bootstrap": "4.4.1",
+    "bootstrap": "^5.2.1",
     "chart.js": "^2.9.4",
     "chartkick": "^3.2.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react_ujs": "^2.6.1"
+    "react_ujs": "^2.6.1",
+    "react-dom": "^16.13.1"
   },
   "version": "0.1.0",
   "devDependencies": {
