@@ -6,26 +6,34 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-         <%= link_to new_book_path, class: "nav-link" do %> 
-           <i class="fas fa-plus text-success"></i> Ajouter un livre
-         <% end %>
-        </li>
-        <li class="nav-item">
-         <%= link_to books_path, class: "nav-link" do %> 
-           <i class="fas fa-book text-info"></i> Mes livres
-         <% end %>
-        </li>
-        <li class="nav-item">
-         <%= link_to edit_user_registration_path, class: "nav-link" do %> 
-           <i class="fas fa-user"></i> Mon profil
-         <% end %>
-        </li>
-        <li class="nav-item">
-         <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-           <i class="fas fa-times text-danger"></i> Déconnexion
-         <% end %>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+           <%= link_to new_book_path, class: "nav-link" do %> 
+             <i class="fas fa-plus text-success"></i> Ajouter un livre
+           <% end %>
+          </li>
+          <li class="nav-item">
+           <%= link_to books_path, class: "nav-link" do %> 
+             <i class="fas fa-book text-info"></i> Mes livres
+           <% end %>
+          </li>
+          <li class="nav-item">
+           <%= link_to edit_user_registration_path, class: "nav-link" do %> 
+             <i class="fas fa-user"></i> Mon profil
+           <% end %>
+          </li>
+          <li class="nav-item">
+           <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+             <i class="fas fa-times text-danger"></i> Déconnexion
+           <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+              <i class="fas fa-plus text-success"></i> Connexion
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

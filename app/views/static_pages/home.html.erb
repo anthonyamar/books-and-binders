@@ -1,19 +1,17 @@
-<% if user_signed_in? %>
-  <div class="container">
-    <div class="jumbotron mt-5 shadow">
-      <h1 class="display-4">Bienvenue dans votre bibliothèque <%= current_user&.first_name %> !</h1>
-      <p class="lead">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p>
-      <hr class="my-4">
-      <p>Vous avez actuellement <%= current_user.books.size %> livres dans votre bibliothèque.</p>
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <% if user_signed_in? %>
+      <h1 class="display-5 fw-bold">Bienvenue dans votre bibliothèque <%= current_user&.first_name %> !</h1>
+      <p class="col-md-8 fs-4">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p>
+      <p class="col-md-8 fs-4">Vous avez actuellement <%= current_user.books.size %> livres dans votre bibliothèque.</p>
       <%= link_to "Ajouter un livre", new_book_path, class: "btn btn-success" %>
       <%= link_to "Voir mes livres", books_path, class: "btn btn-info" %>
-    </div>
+    <% else %>
+      <h1 class="display-5 fw-bold">Connectez-vous</h1>
+      <p class="col-md-8 fs-4">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p> 
+      <%= link_to new_user_session_path, class: "btn btn-success" do %>
+        <i class="fas fa-plus text-success"></i> Connexion
+      <% end %>
+    <% end %>
   </div>
-<% else %>
-  <div class="container">
-    <div class="jumbotron mt-5 shadow">
-      <h1 class="display-4">Connectez-vous</h1>
-      <p class="lead">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p>
-    </div>
-  </div>
-<% end %>
+</div>
