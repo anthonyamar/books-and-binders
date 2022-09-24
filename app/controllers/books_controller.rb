@@ -11,6 +11,7 @@ class BooksController < ApplicationController
 
   def show
 #    render component: 'Book', props: { book: @book }
+    @raw_markdown = BookToMarkdown.new(@book).perform
   end
   
   def public_profile
