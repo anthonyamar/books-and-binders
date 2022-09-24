@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
 
   before_action :authenticate_user!, except: [:public_profile]
-  before_action :set_book, only: [:show, :edit, :update, :destroy, :download_md_note]
-  before_action :user_must_own_the_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, except: [:index, :public_profile, :new, :create]
+  before_action :user_must_own_the_book, only: [:show, :edit, :update, :destroy, :download_md_note, :start_reading, :finish_reading]
 
   def index
     @books = current_user.books
@@ -79,6 +79,38 @@ class BooksController < ApplicationController
   
   def download_md_note
     send_data BookToMarkdown.new(@book).perform, filename: "#{@book.title} - #{@book.author}.md"
+  end
+  
+  def start_reading
+    if @book.update(started_at: DateTime.now)
+      respond_to do |format|
+        format.html { redirect_to(book_path(@book)) }
+        flash[:success] = "Bonne lecture !"
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to(book_path(@book)) }
+        @book.errors.each do |attr, msg|
+          flash[:danger] = "#{attr} -> #{msg}"
+        end
+      end
+    end
+  end
+  
+  def finish_reading
+    if @book.update(finished_at: DateTime.now)
+      respond_to do |format|
+        format.html { redirect_to(book_path(@book)) }
+        flash[:success] = "Félicitations !"
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to(book_path(@book)) }
+        @book.errors.each do |attr, msg|
+          flash[:danger] = "#{attr} -> #{msg}"
+        end
+      end
+    end
   end
   
   private

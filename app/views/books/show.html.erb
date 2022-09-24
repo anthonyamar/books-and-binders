@@ -2,6 +2,12 @@
   <%= react_component "book/show/Heading", { book: @book.to_json } %>
   <div class="my-3">
     <%= link_to "Editer", edit_book_path(@book), class: "btn btn-primary" %>
+    <% if @book.started_at.blank? %>
+      <%= link_to "Je commence à le lire", book_start_reading_path(@book), class: "btn btn-info" %>
+    <% end %>
+    <% if @book.finished_at.blank? && !@book.started_at.blank? %>
+      <%= link_to "J'ai fini de le lire", book_finish_reading_path(@book), class: "btn btn-success" %>
+    <% end %>
   </div>
   <div class="mb-5">
     <ul class="list-group list-group-flush">

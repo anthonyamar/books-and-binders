@@ -28,7 +28,7 @@ class Book < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
   validates_date :release_date, on_or_before: :today, allow_nil: true
   validates_date :buyed_at, on_or_before: :today, allow_nil: true
-  validates_datetime :started_at, on_or_before: :today, allow_nil: true
+  validates_datetime :started_at, on_or_before: :now, allow_nil: true
   validates_datetime :finished_at, after: :started_at, allow_nil: true
   validates :read, inclusion: { in: [true, false] }
   validates :page_count, numericality: { only_integer: true, greater_than: 0 }
