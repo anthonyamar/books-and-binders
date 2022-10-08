@@ -62,7 +62,6 @@ class Book < ApplicationRecord
   # ============= before/after =================
   
   def titleize_proper_names
-    self.title = self.title.titleize
     self.author = self.author.titleize
     self.editor = self.editor.titleize if self.editor
     self.buyed_from = self.buyed_from.titleize if self.buyed_from

@@ -14,7 +14,7 @@
       <tbody>
         <% @books.each do |book| %>
         <tr>
-          <th id="book-<%= book.id %>" onclick="copy(<%= book.id %>);" scope="row">
+          <th onclick="navigator.clipboard.writeText(<%= book.id %>);" scope="row">
             <%= book.id %>
           </th>
           <th>
@@ -66,9 +66,4 @@
   $(document).ready( function () {
     $('#book-index').DataTable();
   });
-  
-  function copy(idx) {
-    navigator.clipboard.writeText(idx);
-  } 
-
 </script>
