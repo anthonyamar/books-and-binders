@@ -1,0 +1,38 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingTwo">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      <b>Copy infos</b>
+    </button>
+  </h2>
+  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <div class="form-group">
+        <label>Release date</label>
+        <div class="d-xl-flex justify-content-between">
+          <%= f.date_select :release_date, { start_year: 1600, end_year: Date.today.year, discard_day: true, order: [:day, :month, :year], with_css_classes: { month: "my-2 my-lg-0" } }, { class: "form-control custom-select" } %>
+        </div><br>
+      </div>
+
+      <label>Page count</label>
+      <%= f.input :page_count %><br>
+
+      <label>Weight (grams)</label>
+      <%= f.input :weight_in_grams %><br>
+
+      <label>Buying condition</label>
+      <%= f.input :buying_condition, collection: Book.buying_conditions.keys, include_blank: false %><br>
+
+      <label>Actual condition</label>
+      <%= f.input :actual_condition, collection: Book.actual_conditions.keys, include_blank: false %><br>
+
+      <label>Book type</label>
+      <%= f.input :book_type, collection: Book.book_types.keys, include_blank: false %><br>
+
+      <label>Binding</label>
+      <%= f.input :binding, collection: Book.bindings.keys, include_blank: false %><br>
+
+      <label>Language</label>
+      <%= f.input :language, collection: I18n.t("languages"), include_blank: false %><br>
+    </div>
+  </div>
+</div>

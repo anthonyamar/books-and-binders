@@ -39,7 +39,6 @@ class Book < ApplicationRecord
   validates :binding, inclusion: { in: bindings.keys }
   validates :language, inclusion: { in: I18n.t("languages") }
   validates :category, inclusion: { in: I18n.t("categories") }
-  validates :summary, length: { in: 2..10000 }, allow_blank: true
   validates :isbn, format: { with: /(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)/, message: "ISBN must be 10 or 13 numbers long and start with 978 or 979" }, allow_blank: true
   validates :weight_in_grams, numericality: { greater_than: 0, only_integer: true }, allow_blank: true
   
@@ -47,6 +46,8 @@ class Book < ApplicationRecord
   
   scope :read, -> { where(read: true) }
   scope :unread, -> { where(read: false) }
+  scope :reviewed, -> { where(reviewed: true) }
+  scope :not_reviewed, -> { where(reviewed: false) }  
   scope :in_categories, -> (categories) { where(category: categories) }
   scope :in_languages, -> (languages) { where(language: languages) }
   
