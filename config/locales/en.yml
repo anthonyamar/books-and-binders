@@ -1,43 +1,244 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        invalid_date: "is not a valid date"
+        invalid_time: "is not a valid hour"
+        invalid_datetime: "is not a valid date"
+        is_at: "should be at %{restriction}"
+        before: "should be before %{restriction}"
+        on_or_before: "should be during or before %{restriction}"
+        after: "should be after %{restriction}"
+        on_or_after: "should be during or after %{restriction}"
+        record_invalid: 'Validation failed : %{errors}'
+        restrict_dependent_destroy:
+          has_one: "You cannot delete the recording because a %{record} dependent exists"
+          has_many: "You cannot delete the recording because the %{record} dependent exist"
+        file_size: "Too heavy. Max size : %{size}%{unit}."
+  date:
+    abbr_day_names:
+    - "sun."
+    - "mon."
+    - "tue."
+    - "wed."
+    - "thu."
+    - "fri."
+    - "sat."
+    abbr_month_names:
+    -
+    - "jan."
+    - "feb."
+    - "mar."
+    - "apr."
+    - "may"
+    - "jun."
+    - "jul."
+    - "aug."
+    - "sept."
+    - "oct."
+    - "nov."
+    - "dec."
+    day_names:
+    - "sunday"
+    - "monday"
+    - "tuesday"
+    - "wednesday"
+    - "thursday"
+    - "friday"
+    - "saturday"
+    formats:
+      default: "%m/%d/%Y"
+      short: "%e %b"
+      long: "%A %e à %B %Y"
+      custom: "%A %d %B"
+      month_year: "%B %Y"
+    month_names:
+    -
+    - "january"
+    - "febuary"
+    - "march"
+    - "april"
+    - "may"
+    - "june"
+    - "july"
+    - "august"
+    - "september"
+    - "october"
+    - "november"
+    - "december"
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "about an hour"
+        other: "about %{count} hours"
+      about_x_months:
+        one: "about a month"
+        other: "about %{count} months"
+      about_x_years:
+        one: "about un an"
+        other: "about %{count} years"
+      almost_x_years:
+        one: "almost a year"
+        other: "almost %{count} years"
+      half_a_minute: "half a minute"
+      less_than_x_minutes:
+        zero: "less than a minute"
+        one: "less than a minute"
+        other: "less than %{count} minutes"
+      less_than_x_seconds:
+        zero: "less than a second"
+        one: "less than a second"
+        other: "less than %{count} seconds"
+      over_x_years:
+        one: "more than a year"
+        other: "more than %{count} years"
+      x_days:
+        one: "1 day"
+        other: "%{count} days"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      x_hours:
+        one: "1 heure"
+        other: "%{count} hours"
+      x_months:
+        one: "1 month"
+        other: "%{count} months"
+      x_years:
+        one: "a year"
+        other: "%{count} years"
+      x_seconds:
+        one: "1 second"
+        other: "%{count} seconds"
+    prompts:
+      day: "Day"
+      hour: "Hour"
+      minute: "Minute"
+      month: "Month"
+      second: "Second"
+      year: "Year"
   errors:
+    format: "%{attribute} %{message}"
     messages:
-      invalid_date: "is not a valid date"
-      invalid_time: "is not a valid time"
-      invalid_datetime: "is not a valid datetime"
-      is_at: "must be at %{restriction}"
-      before: "must be before %{restriction}"
-      on_or_before: "must be on or before %{restriction}"
-      after: "must be after %{restriction}"
-      on_or_after: "must be on or after %{restriction}"
+      accepted: "must be accepted"
+      blank: "must be filled"
+      present: "must be empty"
+      confirmation: "does not agree with %{attribute}"
+      empty: "must be filled"
+      equal_to: "must be equal to %{count}"
+      even: "must be even"
+      exclusion: "is not available"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater or equal to %{count}"
+      inclusion: "is not included in the list"
+      invalid: "isn't valid"
+      less_than: "must be less to %{count}"
+      less_than_or_equal_to: "must be less or equal to %{count}"
+      model_invalid: "Validation failed : %{errors}"
+      not_a_number: "isn't a number"
+      not_an_integer: "must be a whole number"
+      odd: "must be odd"
+      required: "must exist"
+      taken: "is not available"
+      too_long:
+        one: "too long (no more than a character)"
+        other: "too long (no more than %{count} characters)"
+      too_short:
+        one: "too short (no more than a character)"
+        other: "too short (no more than %{count} characters)"
+      wrong_length:
+        one: "is not the right length (must be one character)"
+        other: "is not the right length (must be %{count} character)"
+      other_than: "must be different than %{count}"
+    template:
+      body: "Please check the following fields : "
+      header:
+        one: "Unable to store this %{model} : 1 error"
+        other: "Unable to store this %{model} : %{count} errors"
+  helpers:
+    select:
+      prompt: "Please select"
+    submit:
+      create: "Create a %{model}"
+      submit: "Save this %{model}"
+      update: "Update this %{model}"
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: "billion"
+          million: "million"
+          quadrillion: "quadrillion"
+          thousand: "thousand"
+          trillion: "trillion"
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "byte"
+            other: "bytes"
+          gb: "gb"
+          kb: "kb"
+          mb: "mb"
+          tb: "tb"
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y tp %Hh%M"
+      short: "%d %b %Hh%M"
+      custom: "%A %d %B to %Hh%M"
+      custom_year: "%A %d %B %Y à %Hh%M"
+      custom_year_short: "%A %d/%m/%Y à %Hh%M"
+      long_date: "%A %d %B %Y"
+      short_date: "%d %b"
+      hours_only: "%Hh"
+      time_only: "%H:%M"
+      date_only: "%d/%m/%Y"
+  boolean:
+    true: "True"
+    false: "False"
+    yes_or_no:
+      true: "Yes"
+      false: "No"
+  will_paginate:
+    previous_label: <span class="fas fa-arrow-left"></span>
+    next_label: <span class="fas fa-arrow-right"></span>
