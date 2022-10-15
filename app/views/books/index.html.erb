@@ -9,12 +9,13 @@
           <th scope="col">Titre</th>
           <th scope="col">Auteur</th>
           <th scope="col">Catégorie</th>
+          <th scope="col">Obsidian ID</th>
         </tr>
       </thead>
       <tbody>
         <% @books.each do |book| %>
         <tr>
-          <th onclick="navigator.clipboard.writeText(<%= book.id %>);" scope="row">
+          <th onclick="navigator.clipboard.writeText(<%= "%%id:#{book.id}%%" %>);" scope="row">
             <%= book.id %>
           </th>
           <th>
@@ -34,6 +35,14 @@
           <td><%= book.title %></td>
           <td><%= book.author %></td>
           <td><%= book.category %></td>
+          <td>
+            <div class="d-flex">
+              <button onclick="copy(<%= book.id %>);">
+                <i class="fas fa-copy"></i>
+              </button>
+              <input id="raw-markdown-<%= book.id %>" type="text" value="<%= "%%id:#{book.id}%%" %>" disabled>
+            </div>
+          </td>
         </tr>
         <% end %>
       </tbody>
@@ -66,4 +75,11 @@
   $(document).ready( function () {
     $('#book-index').DataTable();
   });
+  
+  function copy(id) {
+    var copyText = document.getElementById("raw-markdown-" + id);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+  } 
 </script>
