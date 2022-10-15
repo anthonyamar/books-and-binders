@@ -1,16 +1,16 @@
 <div class="p-5 mb-4 bg-light rounded-3">
   <div class="container-fluid py-5">
     <% if user_signed_in? %>
-      <h1 class="display-5 fw-bold">Bienvenue dans votre bibliothèque <%= current_user&.first_name %> !</h1>
-      <p class="col-md-8 fs-4">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p>
-      <p class="col-md-8 fs-4">Vous avez actuellement <%= current_user.books.size %> livres dans votre bibliothèque.</p>
-      <%= link_to "Ajouter un livre", new_book_path, class: "btn btn-success" %>
-      <%= link_to "Voir mes livres", books_path, class: "btn btn-info" %>
+      <h1 class="display-5 fw-bold">Welcome in your library <%= current_user&.first_name %> !</h1>
+      <p class="col-md-8 fs-4">List your books to better track your progress and reading.</p>
+      <p class="col-md-8 fs-4">You currently have <%= current_user.books.size %> books in your library.</p>
+      <%= link_to "Add a book", new_book_path, class: "btn btn-success" %>
+      <%= link_to "My books", books_path, class: "btn btn-info" %>
     <% else %>
-      <h1 class="display-5 fw-bold">Connectez-vous</h1>
-      <p class="col-md-8 fs-4">Répertoriez vos livres afin de mieux tracker votre progression et votre lecture.</p> 
+      <h1 class="display-5 fw-bold">Get signed in</h1>
+      <p class="col-md-8 fs-4">List your books to better track your progress and reading.</p> 
       <%= link_to new_user_session_path, class: "btn btn-success" do %>
-        <i class="fas fa-plus"></i> Connexion
+        <i class="fas fa-plus"></i> Sign in
       <% end %>
     <% end %>
   </div>

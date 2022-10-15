@@ -11,28 +11,28 @@
         <% if user_signed_in? %>
           <li class="nav-item">
            <%= link_to new_book_path, class: "nav-link" do %> 
-             <i class="fas fa-plus text-success"></i> Ajouter un livre
+             <i class="fas fa-plus text-success"></i> Add a book
            <% end %>
           </li>
           <li class="nav-item">
            <%= link_to books_path, class: "nav-link" do %> 
-             <i class="fas fa-book text-info"></i> Mes livres
+             <i class="fas fa-book text-info"></i> My books
            <% end %>
           </li>
           <li class="nav-item">
            <%= link_to edit_user_registration_path, class: "nav-link" do %> 
-             <i class="fas fa-user"></i> Mon profil
+             <i class="fas fa-user"></i> My profil
            <% end %>
           </li>
           <li class="nav-item">
            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-             <i class="fas fa-times text-danger"></i> Déconnexion
+             <i class="fas fa-times text-danger"></i> Sign out
            <% end %>
           </li>
         <% else %>
           <li class="nav-item">
             <%= link_to new_user_session_path, class: "nav-link" do %>
-              <i class="fas fa-plus text-success"></i> Connexion
+              <i class="fas fa-plus text-success"></i> Sign in
             <% end %>
           </li>
         <% end %>
