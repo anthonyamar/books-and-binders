@@ -1,4 +1,4 @@
-<% components_path = "books/edit_components/" %>
+<% components_path = "books/fields_components/" %>
 <div class="container my-5">
   <h1>Edit "<%= @book.title %>" - #<%= @book.id %></h1><br>
   <%= simple_form_for @book, url: book_path(@book), method: :put, 
