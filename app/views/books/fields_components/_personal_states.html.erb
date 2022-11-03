@@ -8,9 +8,25 @@
     <div class="accordion-body">
       <label>Read?</label>
       <%= f.input :read, as: :select, collection: [true, false], include_blank: false %><br>
+      
+      <div class="form-group">
+        <label>Reading started </label>
+        <div class="d-xl-flex justify-content-between">
+          <%= f.date_select :started_at, { start_year: Date.today.year - 5, end_year: Date.today.year, order: [:day, :month, :year], with_css_classes: { month: "mx-lg-4 my-2 my-lg-0" }, include_blank: true }, { class: "form-control custom-select" } %>
+        </div><br>
+      </div>
+      
+      <div class="form-group">
+        <label>Reading finished</label>
+        <div class="d-xl-flex justify-content-between">
+          <%= f.date_select :finished_at, { start_year: Date.today.year - 5, end_year: Date.today.year, order: [:day, :month, :year], with_css_classes: { month: "mx-lg-4 my-2 my-lg-0" }, include_blank: true }, { class: "form-control custom-select" } %>
+        </div><br>
+      </div>
 
       <label>Reviewed?</label>
       <%= f.input :reviewed, as: :select, collection: [true, false], include_blank: false %><br>
+      
+      
     </div>
   </div>
 </div>

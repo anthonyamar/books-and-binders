@@ -1,24 +1,40 @@
-<div class="mb-5">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><b>Editor : </b><%= @book.editor %></li>
-    <li class="list-group-item"><b>Price : </b><%= number_to_currency(@book.price) %></li>
-    <li class="list-group-item"><b>Release_date : </b><%= l(@book.release_date) %></li>
-    <li class="list-group-item"><b>Buyed at : </b><%= l(@book.buyed_at) %></li>
-    <li class="list-group-item"><b>Started at : </b><%= @book.started_at.nil? ? "Not started" : l(@book.started_at) %></li>
-    <li class="list-group-item"><b>Finished at : </b><%= @book.finished_at.nil? ? "Not finished" : l(@book.finished_at) %></li>
-    <li class="list-group-item"><b>Read : </b><%= @book.read ? "Yes" : "No" %></li>
-    <li class="list-group-item"><b>Pages : </b><%= @book.page_count %> pages</li>
-    <li class="list-group-item"><b>Buying condition : </b><%= @book.buying_condition %></li>
-    <li class="list-group-item"><b>Buyed from : </b><%= @book.buyed_from %></li>
-    <li class="list-group-item"><b>Actual condition : </b><%= @book.actual_condition %></li>
-    <li class="list-group-item"><b>Book type : </b><%= @book.book_type %></li>
-    <li class="list-group-item"><b>Binding : </b><%= @book.binding %></li>
-    <li class="list-group-item"><b>Language : </b><%= @book.language %></li>
-    <li class="list-group-item"><b>Category : </b><%= @book.category %></li>
-    <li class="list-group-item"><b>Reviewed : </b><%= @book.reviewed ? "Yes" : "No" %></li>
-    <li class="list-group-item"><b>Created at : </b><%= l(@book.created_at) %></li>
-    <li class="list-group-item"><b>Updated at : </b><%= l(@book.updated_at) %></li>
-    <li class="list-group-item"><b>ISBN : </b><%= @book.isbn %></li>
-    <li class="list-group-item"><b>Weight (grams) : </b><%= @book.weight_in_grams %></li>
-  </ul>
+<div class="mb-3 row">
+  <div class="col">
+    <h2>Book identity</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item border-0"><b>Title: </b><%= @book.title %></li>
+      <li class="list-group-item border-0"><b>Author: </b><%= @book.author %></li>
+      <li class="list-group-item border-0"><b>Editor: </b><%= @book.editor %></li>
+      <li class="list-group-item border-0"><b>Category: </b><%= @book.category %></li>
+      <li class="list-group-item border-0"><b>ISBN: </b><%= @book.isbn %></li>
+    </ul>
+    <h2 class="mt-3">Copy infos</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item border-0"><b>Release_date: </b><%= l(@book.release_date) %></li>
+      <li class="list-group-item border-0"><b>Pages: </b><%= @book.page_count %> pages</li>
+      <li class="list-group-item border-0"><b>Weight (grams): </b><%= @book.weight_in_grams %></li>
+      <li class="list-group-item border-0"><b>Buying condition: </b><%= @book.buying_condition %></li>
+      <li class="list-group-item border-0"><b>Actual condition: </b><%= @book.actual_condition %></li>
+      <li class="list-group-item border-0"><b>Book type: </b><%= @book.book_type %></li>
+      <li class="list-group-item border-0"><b>Binding: </b><%= @book.binding %></li>
+      <li class="list-group-item border-0"><b>Language: </b><%= @book.language %></li>
+    </ul>
+  </div>
+  <div class="col">
+    <h2 class="mt-3">Acquisition infos</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item border-0"><b>Buyed at: </b><%= l(@book.buyed_at) %></li>
+      <li class="list-group-item border-0"><b>Buyed from: </b><%= @book.buyed_from %></li>
+      <li class="list-group-item border-0"><b>Price: </b><%= number_to_currency(@book.price) %></li>
+    </ul>
+    <h2 class="mt-3">Personal states</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item border-0"><b>Read: </b><%= @book.read ? "Yes" : "No" %></li>
+      <li class="list-group-item border-0"><b>Started at: </b><%= @book.started_at.nil? ? "Not specified" : l(@book.started_at) %></li>
+      <li class="list-group-item border-0"><b>Finished at: </b><%= @book.finished_at.nil? ? "Not specified" : l(@book.finished_at) %></li>
+      <li class="list-group-item border-0"><b>Reviewed: </b><%= @book.reviewed ? "Yes" : "No" %></li>
+      <li class="list-group-item border-0"><b>Created at: </b><%= l(@book.created_at) %></li>
+      <li class="list-group-item border-0"><b>Updated at: </b><%= l(@book.updated_at) %></li>
+    </ul>
+  </div>
 </div>
