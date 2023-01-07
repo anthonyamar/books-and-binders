@@ -223,7 +223,7 @@ en:
     am: am
     formats:
       default: "%d %B %Y %Hh %Mmin %Ss"
-      long: "%A %d %B %Y tp %Hh%M"
+      long: "%A %d %B %Y at %Hh%M"
       short: "%d %b %Hh%M"
       custom: "%A %d %B to %Hh%M"
       custom_year: "%A %d %B %Y à %Hh%M"

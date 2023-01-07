@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container-fluid px-5 mt-5">
   <h1>My library</h1> 
   <div class="table-responsive mt-5">
     <table id="book-index" class="table table-bordered table-hover">
@@ -9,6 +9,7 @@
           <th scope="col">Title</th>
           <th scope="col">Author</th>
           <th scope="col">Category</th>
+          <th scope="col">Added at</th>
           <th scope="col">Obsidian ID</th>
         </tr>
       </thead>
@@ -35,6 +36,7 @@
           <td><%= book.title %></td>
           <td><%= book.author %></td>
           <td><%= book.category %></td>
+          <td><%= l(book.created_at, format: :date_only) %></td>
           <td>
             <div class="d-flex">
               <button onclick="copy(<%= book.id %>);">
@@ -49,7 +51,7 @@
     </table>
   </div>
   
-  <div class="container">
+  <div class="container-fluid px-5">
     <div class="row">
       <div class="col-sm-6 my-5">
         <h3 class="mb-5">Category repartition</h3>

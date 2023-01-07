@@ -7,7 +7,7 @@
   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
     <div class="accordion-body">
       <div class="form-group">
-        <label>Release date</label>
+        <label>Acquisition date</label>
         <div class="d-xl-flex justify-content-between">
           <%= f.date_select :buyed_at, { start_year: Date.today.year - 5, end_year: Date.today.year, order: [:day, :month, :year], with_css_classes: { month: "mx-lg-4 my-2 my-lg-0" } }, { class: "form-control custom-select" } %>
         </div><br>
