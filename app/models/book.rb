@@ -31,6 +31,7 @@ class Book < ApplicationRecord
   validates_datetime :started_at, on_or_before: :now, allow_nil: true
   validates_datetime :finished_at, after: :started_at, allow_nil: true
   validates :read, inclusion: { in: [true, false] }
+  validates :readable, inclusion: { in: [true, false] }
   validates :page_count, numericality: { only_integer: true, greater_than: 0 }
   validates :buying_condition, inclusion: { in: buying_conditions.keys }
   validates :buyed_from, length: { in: 2..100 }, allow_blank: true
@@ -41,11 +42,13 @@ class Book < ApplicationRecord
   validates :category, inclusion: { in: I18n.t("categories") }
   validates :isbn, format: { with: /(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)/, message: "ISBN must be 10 or 13 numbers long and start with 978 or 979" }, allow_blank: true
   validates :weight_in_grams, numericality: { greater_than: 0, only_integer: true }, allow_blank: true
+  validates :note, numericality: { in: [0..5] }, allow_nil: true
   
   # ============= scopes =================
   
   scope :read, -> { where(read: true) }
   scope :unread, -> { where(read: false) }
+  scope :unreadable, -> { where(readable: false) }
   scope :reviewed, -> { where(reviewed: true) }
   scope :not_reviewed, -> { where(reviewed: false) }  
   scope :in_categories, -> (categories) { where(category: categories) }

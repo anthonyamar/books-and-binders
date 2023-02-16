@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_15_215851) do
+ActiveRecord::Schema.define(version: 2023_02_16_192721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2022_10_15_215851) do
     t.string "isbn"
     t.integer "weight_in_grams"
     t.boolean "reviewed", default: false, null: false
+    t.boolean "readable", default: true, null: false
+    t.integer "note"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
