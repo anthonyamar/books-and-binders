@@ -13,38 +13,69 @@ class BookFacade
   end
   
   # READ AND PAGES
+  def total_readable_books
+    readable_books.size
+  end
   
   def total_pages
     books.sum(&:page_count)
   end
   
-  def total_read_pages
-    books.read.sum(&:page_count)
+  def average_pages
+    books.sum(&:page_count) / books.size
   end
   
-  def total_unread_pages
-    books.unread.sum(&:page_count)
+  def total_readable_pages
+    readable_books.sum(&:page_count)
+  end
+  
+  def total_read_pages
+    total_read.sum(&:page_count)
+  end
+  
+  def total_read
+    readable_books.read
+  end
+  
+  def total_unread
+    readable_books.unread
   end
   
   def read_percentage
-    (total_read_pages * 100.0 / total_pages).round(2)
+    (total_read.size * 100.0 / total_readable_books).round(2)
   end
   
   # WEIGHT
   
+  def books_with_weight
+    books.where.not(weight_in_grams: nil)
+  end
   def total_weight(unit: :kg)
-    weight = books.reject { |b| b.weight_in_grams.nil? }.sum(&:weight_in_grams)
-    if unit == :grams
-      weight
-    elsif unit == :kg
-      weigh * 100
-    end
+    sum = books_with_weight.sum(&:weight_in_grams)
+    unit == :grams ? sum : sum / 1000
+  end
+  
+  def total_read_weight(unit: :kg)
+    sum = books_with_weight.read.sum(&:weight_in_grams)
+    unit == :grams ? sum : sum / 1000
+  end
+  
+  def average_weight
+    total_weight(unit: :grams) / books.size
   end
   
   # MONEY
   
+  def books_with_price
+    books.where.not(price: nil)
+  end
+  
   def total_spent
-    books.reject { |b| b.price.nil? }.sum(&:price)
+    books_with_price.sum(&:price)
+  end
+  
+  def average_spent
+    books_with_price.sum(&:price) / books_with_price.size
   end
   
   # FIRST/LAST
@@ -62,15 +93,19 @@ class BookFacade
   end
   
   def lighter_book(take: 1)
-    books.order(:weight_in_grams).first(take)
+    books_with_weight.order(:weight_in_grams).first(take)
   end
   
   def heavier_book(take: 1)
-    books.order(:weight_in_grams).last(take)
+    books_with_weight.order(:weight_in_grams).last(take)
   end
   
   def most_expansive_book(take: 1)
-    books.order(:price).last(take)
+    books_with_price.order(:price).last(take)
+  end
+  
+  def readable_books
+    books.readable
   end
   
   # REPARTITION

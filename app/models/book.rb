@@ -47,6 +47,7 @@ class Book < ApplicationRecord
   # ============= scopes =================
   
   scope :read, -> { where(read: true) }
+  scope :readable, -> { where(readable: true) }
   scope :unread, -> { where(read: false) }
   scope :unreadable, -> { where(readable: false) }
   scope :reviewed, -> { where(reviewed: true) }
