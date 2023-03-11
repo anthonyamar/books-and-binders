@@ -9,8 +9,9 @@
           <th scope="col">Title</th>
           <th scope="col">Author</th>
           <th scope="col">Category</th>
-          <th scope="col">Added at</th>
-          <th scope="col">Obsidian ID</th>
+          <th scope="col" data-sort='YYYYMMDD'>Added at</th>
+          <th scope="col">Read ?</th>
+          <th scope="col">ID</th>
         </tr>
       </thead>
       <tbody>
@@ -38,13 +39,15 @@
           <td><%= book.category %></td>
           <td><%= l(book.created_at, format: :date_only) %></td>
           <td>
-            <div class="d-flex">
-              <button onclick="copy(<%= book.id %>);">
-                <i class="fas fa-copy"></i>
-              </button>
-              <input id="raw-markdown-<%= book.id %>" type="text" value="<%= "%%id:#{book.id}%%" %>" disabled>
-            </div>
+            <% if book.read && book.readable %>
+              <i class="fas fa-check text-success"></i>
+            <% elsif !book.read && book.readable %>
+              <i class="fas fa-times text-danger"></i>
+            <% else %>
+              Unreadable
+            <% end %>
           </td>
+          <td><%= book.id %></td>
         </tr>
         <% end %>
       </tbody>
