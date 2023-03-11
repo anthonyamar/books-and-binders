@@ -26,7 +26,8 @@
       <label>Reviewed?</label>
       <%= f.input :reviewed, as: :select, collection: [true, false], include_blank: false %><br>
       
-      
+      <label>Note / 5</label>
+      <%= f.input :note, as: :select, collection: (0..5).to_a %><br>
     </div>
   </div>
 </div>

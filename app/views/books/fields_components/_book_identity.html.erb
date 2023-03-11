@@ -20,6 +20,9 @@
 
       <label>Category</label>
       <%= f.input :category, collection: I18n.t("categories").sort, include_blank: false %><br>
+      
+      <label>Readable?</label>
+      <%= f.input :readable, as: :select, collection: [true, false], include_blank: false %><br>
     </div>
   </div>
 </div>
