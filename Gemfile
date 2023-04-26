@@ -18,6 +18,7 @@ gem "simple_form"
 gem "chartkick"
 gem "rubyzip"
 gem "zipline"
+gem "googlebooks"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

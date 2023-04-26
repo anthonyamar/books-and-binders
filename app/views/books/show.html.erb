@@ -1,6 +1,9 @@
 <% components_path = "books/show_components/" %>
  
-<div class="container mt-5">
+<div class="container-fluid p-5">
+  <% unless @google_book.image_link.nil? %>
+    <img src="<%= @google_book.image_link %>" alt="Thumbnail" style="margin: 0 15px 25px 0; float: left; width: 100px;">
+  <% end %>
   <%= react_component "book/show/Heading", { book: @book.to_json } %>
   <div class="my-3">
     <%= link_to "Edit", edit_book_path(@book), class: "btn btn-primary" %>
@@ -12,7 +15,7 @@
     <% end %>
   </div>
   <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
+    <div class="accordion-item" style="margin-top: 50px;">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <i class="fas fa-info-circle"></i> &nbsp; Details

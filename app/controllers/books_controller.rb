@@ -11,6 +11,11 @@ class BooksController < ApplicationController
 
   def show
 #    render component: 'Book', props: { book: @book }
+    @google_book = GoogleBooksApi.new(isbn: @book.isbn).book
+    
+    puts "=============="
+    puts @google_book
+    puts "=============="
     @raw_markdown = BookToMarkdown.new(@book).perform
   end
   
