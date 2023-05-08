@@ -26,7 +26,7 @@ class WishlistsController < ApplicationController
     else
       respond_to do |format|
         format.html { redirect_back(fallback_location: new_wishlist_path) }
-        @book.errors.each do |attr, msg|
+        @wishlist.errors.each do |attr, msg|
           flash[:danger] = "#{attr} -> #{msg}"
         end
       end
@@ -61,7 +61,7 @@ class WishlistsController < ApplicationController
     else
       respond_to do |format|
         format.html { redirect_back(fallback_location: wishlist_path(@wishlist)) }
-        @book.errors.each do |attr, msg|
+        @wishlist.errors.each do |attr, msg|
           flash[:danger] = "#{attr} -> #{msg}"
         end
       end
@@ -75,7 +75,7 @@ class WishlistsController < ApplicationController
   end
 
   def wishlist_params
-    params.require(:wishlist).permit(:title, :description)
+    params.require(:wishlist).permit(:title, :description, :user_id)
   end
   
   def user_must_own_the_wishlist

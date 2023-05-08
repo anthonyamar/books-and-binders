@@ -1,8 +1,17 @@
 <div class="container-fluid px-5 mt-5">
-  <h1 class="mb-5">
-    <i class="fas fa-list text-warning"></i>
-    My wishlists
-  </h1>
+  <div class="d-flex justify-content-between">
+    <div>
+      <h1 class="mb-5">
+        <i class="fas fa-list text-warning"></i>
+        My wishlists
+      </h1>
+    </div>
+    <div>
+      <%= link_to new_wishlist_path, class: "btn btn-success" do %>
+        <i class="fas fa-plus"></i> New list
+      <% end %>
+    </div>
+  </div>
   <div class="row">
     <% @wishlists.each do |wishlist| %>
       <div class="col-sm-3">
@@ -25,7 +34,7 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "#", class: "text-danger nav-link p-1" do %>
+              <%= link_to wishlist_path(wishlist), class: "text-danger nav-link p-1", method: :delete, data: {confirm: "Are you sure?"} do %>
                 <i class="fas fa-trash"></i>
               <% end %>
             </li>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   resources :books
   resources :wishlists
-  resources :wishlist_items
+  resources :wishlist_items, except: [:index]
   
   get '/:username/books', to: "books#public_profile", as: "user_public_profile"
   get '/books/:id/download_md_note', to: "books#download_md_note", as: "book_download_md_note"
