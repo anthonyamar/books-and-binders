@@ -1,10 +1,10 @@
-class Wishlist < ApplicationRecord
+class WishlistItem < ApplicationRecord
   
   # ============= constants/enums =================
   # ============= relationships =================
   
   belongs_to :user
-  has_many :wishlist_items
+  belongs_to :wishlist
   
   # ============= before/after =================
   # ============= validations =================
