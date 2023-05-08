@@ -1,0 +1,29 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingOne">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <b>Wishlist item</b>
+    </button>
+  </h2>
+  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <label>Title</label>
+      <%= f.input :title %><br>
+
+      <label>Author</label>
+      <%= f.input :author %><br>
+      
+      <label>Editor</label>
+      <%= f.input :editor %><br>
+      
+      <label>Target price</label>
+      <%= f.input :target_price %><br>
+      
+      <label>Priority (1 == high ; 5 == low)</label>
+      <%= f.input :priority, as: :select, collection: (1..5).to_a, include_blank: false %><br>
+      
+      <label>Search/buying brief (MD enabled)</label>
+      <%= f.input :brief, as: :text, input_html: { rows: 7 } %><br>
+      
+    </div>
+  </div>
+</div>

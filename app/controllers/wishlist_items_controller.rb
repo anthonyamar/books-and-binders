@@ -13,7 +13,7 @@ class WishlistItemsController < ApplicationController
   end
 
   def create
-    @wishlist_item = WishlistItem.new(wishlist_item_params)
+    @wishlist_item = @wishlist.wishlist_items.build(wishlist_item_params)
 
     if @wishlist_item.save
       respond_to do |format|
@@ -36,7 +36,7 @@ class WishlistItemsController < ApplicationController
   def update
     if @wishlist_item.update(wishlist_item_params)
       respond_to do |format|
-        format.html { redirect_to(wishlist_item_path(@wishlist_item)) }
+        format.html { redirect_to(wishlist_item_path(@wishlist, @wishlist_item)) }
         flash[:success] = "The item #{@wishlist_item.title} has been edited."
       end
     else
@@ -75,8 +75,8 @@ class WishlistItemsController < ApplicationController
     @wishlist_item = @wishlist.wishlist_items.find(params[:id])
   end
 
-  def wishlist_params
-    params.require(:wishlist_item).permit(:title, :author, :editor, :brief, :target_price, :note, :user_id, :wishlist_id)
+  def wishlist_item_params
+    params.require(:wishlist_item).permit(:title, :author, :editor, :brief, :target_price, :priority, :user_id, :wishlist_id)
   end
   
   def user_must_own_the_wishlist_item

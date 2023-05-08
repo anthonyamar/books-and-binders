@@ -1,2 +1,53 @@
-<h1>WishlistItems#show</h1>
-<p>Find me in app/views/wishlist_items/show.html.erb</p>
+<% components_path = "wishlist_items/show_components/" %>
+ 
+<div class="container-fluid p-5">
+  <% unless @google_book.image_link.nil? %>
+    <img src="<%= @google_book.image_link %>" alt="Thumbnail" style="margin: 0 15px 25px 0; float: left; width: 100px;">
+  <% end %>
+  <h1>
+    <%= wishlist_item.title %> - <%= wishlist_item.author %>
+  </h1>
+  <div class="my-3">
+    <%= link_to "Edit", edit_wishlist_item_path(@wishlist, @wishlist_item), class: "btn btn-primary" %>
+  </div>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item" style="margin-top: 50px;">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <i class="fas fa-info-circle"></i> &nbsp; Details
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <%= render components_path + 'details' %>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Obsidian Flavored Raw Markdown
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <button id="copy-button" onclick="copy();" class="btn btn-outline-success w-100 mb-3">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+          <textarea id="raw-markdown" name="Raw Markdown" class="w-100" rows="30" disabled><%= @raw_markdown %></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function copy() {
+    var copyText = document.getElementById("raw-markdown");
+    var button = document.getElementById("copy-button");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    button.innerHTML = "<i class='fas fa-valid'></i> Copié !";
+  } 
+</script>

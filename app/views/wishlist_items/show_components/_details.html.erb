@@ -1,0 +1,44 @@
+<div class="mb-3 row">
+  <% unless @google_book.blank? || @book.isbn.blank? %>
+    <div class="col pr-5">
+      <h2 class="mt-3">Google Books Infos</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item border-0"><b>Title: </b><%= @google_book.title %></li>
+        <% unless @google_book.average_rating.blank? %>
+          <li class="list-group-item border-0">
+            <b>AVG Rating: </b>
+            <%= @google_book.average_rating %> 
+            (<%= @google_book.ratings_count %> ratings)
+          </li>
+        <% end %>
+        <% unless @google_book.categories.blank? %>
+          <li class="list-group-item border-0"><b>Categories: </b><%= @google_book.categories %></li>
+        <% end %>
+        <% unless @google_book.description.blank? %>
+          <li class="list-group-item border-0"><p class="pr-5"><b>Resume: </b><%= @google_book.description %></p></li>
+        <% end %>
+        <li class="list-group-item border-0">
+          <%= link_to "Infos on GoogleBook", @google_book.info_link, target: "_blank" %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col">
+    <h2 class="mt-3">Book wished</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item border-0"><b>Title: </b><%= @wishlist_item.title %></li>
+      <li class="list-group-item border-0"><b>Author: </b><%= @wishlist_item.author %></li>
+      <li class="list-group-item border-0"><b>Editor: </b><%= @wishlist_item.editor %></li>
+      <li class="list-group-item border-0"><b>ISBN: </b><%= @wishlist_item.isbn %></li>
+    </ul>
+  <div class="col">
+    <h2 class="mt-3">Acquisition infos</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item border-0"><b>Target price: </b><%= number_to_currency(@wishlist_item.target_price) %></li>
+      <li class="list-group-item border-0">
+        <b>Search/buying brief: </b>
+        <%= @wishlist_item.brief %>
+      </li>
+    </ul>
+  </div>
+</div>

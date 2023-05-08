@@ -1,2 +1,15 @@
-<h1>WishlistItems#edit</h1>
-<p>Find me in app/views/wishlist_items/edit.html.erb</p>
+<% components_path = "wishlist_items/field_components/" %>
+<div class="container my-5">
+  <h1>Edit wish : "<%= @wishlist_item.title %>" | <%= @wishlist.id %> ; <%= @wishlist_item.id %></h1><br>
+  <%= simple_form_for @wishlist_item, url: wishlist_item_path(@wishlist), method: :put, 
+    defaults: { label: false, input_html: { class: "form-control shadow-sm"} }, 
+    input_html: { class: "form-group" } do |f| 
+  %>
+    <div class="accordion shadow-sm" id="accordionExample">
+      <%= render components_path + "form", f: f %>
+    </div>
+    <%= f.hidden_field :wishlist_id, value: @wishlist.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "Edit", class: "btn btn-success btn-lg w-100 mt-3" %>
+  <% end %>
+</div>
