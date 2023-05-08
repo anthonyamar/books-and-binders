@@ -37,11 +37,12 @@
       <li class="list-group-item border-0"><b>Target price: </b><%= number_to_currency(@wishlist_item.target_price) %></li>
       <li class="list-group-item border-0">
         <b>Search/buying brief: </b>
-        <textarea id="raw-markdown" name="Raw Markdown" class="w-100" rows="7" disabled><%= @wishlist_item.brief %></textarea>
-        <button id="copy-button" onclick="copy();" class="btn btn-outline-success btn-sm w-100 mb-3">
-          <i class="fas fa-copy"></i> Copy
-        </button>
-        
+        <% unless @wishlist_item.brief.blank? %>
+          <textarea id="raw-markdown" name="Raw Markdown" class="w-100" rows="7" disabled><%= @wishlist_item.brief %></textarea>
+          <button id="copy-button" onclick="copy();" class="btn btn-outline-success btn-sm w-100 mb-3">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        <% end %>
       </li>
     </ul>
   </div>
