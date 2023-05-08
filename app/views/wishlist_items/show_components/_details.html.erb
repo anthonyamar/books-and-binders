@@ -1,5 +1,5 @@
 <div class="mb-3 row">
-  <% unless @google_book.blank? || @book.isbn.blank? %>
+  <% unless @google_book.blank? || @wishlist_item.isbn.blank? %>
     <div class="col pr-5">
       <h2 class="mt-3">Google Books Infos</h2>
       <ul class="list-group list-group-flush">
@@ -37,7 +37,11 @@
       <li class="list-group-item border-0"><b>Target price: </b><%= number_to_currency(@wishlist_item.target_price) %></li>
       <li class="list-group-item border-0">
         <b>Search/buying brief: </b>
-        <%= @wishlist_item.brief %>
+        <textarea id="raw-markdown" name="Raw Markdown" class="w-100" rows="7" disabled><%= @wishlist_item.brief %></textarea>
+        <button id="copy-button" onclick="copy();" class="btn btn-outline-success btn-sm w-100 mb-3">
+          <i class="fas fa-copy"></i> Copy
+        </button>
+        
       </li>
     </ul>
   </div>

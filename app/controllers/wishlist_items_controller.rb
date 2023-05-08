@@ -6,6 +6,7 @@ class WishlistItemsController < ApplicationController
   before_action :user_must_own_the_wishlist_item, only: [:show, :edit, :update, :destroy]
 
   def show
+    @google_book = GoogleBooksApi.new(isbn: @wishlist_item.isbn).book
   end
 
   def new
@@ -76,7 +77,7 @@ class WishlistItemsController < ApplicationController
   end
 
   def wishlist_item_params
-    params.require(:wishlist_item).permit(:title, :author, :editor, :brief, :target_price, :priority, :user_id, :wishlist_id)
+    params.require(:wishlist_item).permit(:title, :author, :editor, :isbn, :brief, :target_price, :priority, :user_id, :wishlist_id)
   end
   
   def user_must_own_the_wishlist_item
