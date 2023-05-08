@@ -71,16 +71,17 @@ class WishlistsController < ApplicationController
   private 
   
   def set_wishlist
-    @book = Wishlist.find(params[:id])
+    @wishlist = Wishlist.find(params[:id])
   end
 
   def wishlist_params
     params.require(:wishlist).permit(:title, :description)
   end
-
+  
   def user_must_own_the_wishlist
     unless current_user == @wishlist.user
       render_404
     end
   end
+  
 end

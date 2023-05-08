@@ -20,6 +20,11 @@
            <% end %>
           </li>
           <li class="nav-item">
+            <%= link_to wishlists_path, class: "nav-link" do %>
+              <i class="fas fa-list text-warning"></i> My wishlists
+            <% end %>
+          </li>
+          <li class="nav-item">
            <%= link_to edit_user_registration_path, class: "nav-link" do %> 
              <i class="fas fa-user"></i> My profil
            <% end %>
