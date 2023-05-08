@@ -7,6 +7,9 @@ class Wishlist < ApplicationRecord
   has_many :wishlist_items
   
   # ============= before/after =================
+  
+  validates :title, length: { in: 2..100 }, presence: true
+  
   # ============= validations =================
   # ============= scopes =================
   # ============= class methods =================

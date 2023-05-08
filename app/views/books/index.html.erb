@@ -53,57 +53,6 @@
       </tbody>
     </table>
   </div>
-  
-  <div class="mt-5">
-    <div class="row mb-3">
-      <div class="col-sm-3">
-        <div class="card p-3 shadow-sm border-info">
-        <h3 class="mb-2">Read books</h3>
-        <b><%= @facade.read_percentage %>%</b><br>
-        <%= @facade.total_read.size %> read<br>
-         <%= @facade.total_unread.size %> unread / <%= @facade.total_readable_books %> readable books
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="card p-3 shadow-sm border-info">
-        <h3 class="mb-2">Money spent</h3>
-        <b><%= @facade.total_spent %>€</b><br>
-        <%= @facade.average_spent.round(2) %>€ average <br>
-        <%= @facade.most_expansive_book.first.price %>€ max
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="card p-3 shadow-sm border-info">
-        <h3 class="mb-2">Pages</h3>
-        <b><%= @facade.total_pages %> pages</b><br>
-        <%= @facade.total_read_pages %> read / <%= @facade.total_readable_pages %> readable <br>
-        <%= @facade.average_pages %> avg, <%= @facade.shortest_book.last.page_count %> <%= "<->" %> <%= @facade.longest_book.last.page_count %>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="card p-3 shadow-sm border-info">
-        <h3 class="mb-2">Weight</h3>
-        <b><%= @facade.total_weight %>kg</b><br>
-        <%= @facade.total_read_weight %>kg read <br> 
-        <%= @facade.average_weight %>g avg, <%= @facade.lighter_book.last.weight_in_grams %>g <%= "<->" %> <%= @facade.heavier_book.last.weight_in_grams / 1000 %>kg
-        </div>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-sm-6 my-5">
-        <h3 class="mb-5">Category repartition</h3>
-        <%= bar_chart @facade.category_repartition.sort_by { |k, v| v }.reverse, height: "1000px" %>
-      </div>
-      <div class="col-sm-6 my-5">
-        <h3 class="mb-5">Language repartition</h3>
-        <%= pie_chart @facade.language_repartition %>
-        <h3 class="my-5">Book type repartition</h3>
-        <%= pie_chart @facade.book_type_repartition %>
-        <h3 class="my-5">Binding repartition</h3>
-        <%= pie_chart @facade.binding_repartition %>
-      </div>
-    </div>
-  </div>
 </div>
 
 <script>

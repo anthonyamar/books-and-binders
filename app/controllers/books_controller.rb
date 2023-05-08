@@ -6,7 +6,6 @@ class BooksController < ApplicationController
 
   def index
     @books = current_user.books
-    @facade = BookFacade.new(current_user)
   end
 
   def show
