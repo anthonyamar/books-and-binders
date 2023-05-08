@@ -1,2 +1,67 @@
-<h1>Wishlists#show</h1>
-<p>Find me in app/views/wishlists/show.html.erb</p>
+<div class="container-fluid px-5 mt-5">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h1>
+        <i class="fas fa-list text-warning"></i>
+        <%= @wishlist.title %>
+      </h1>
+      <p><%= @wishlist.description %></p>
+    </div>
+    <div>
+      <%= link_to "#", class: "btn btn-success" do %>
+        <i class="fas fa-plus"></i> New wish
+      <% end %>
+      <%= link_to "#", class: "btn btn-info" do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+      <%= link_to "#", class: "btn btn-danger" do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="table-responsive mt-5">
+    <table id="wishlist-items-index" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Actions</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Target price</th>
+          <th scope="col">Priority</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @wishlist.wishlist_items.each do |item| %>
+        <tr>
+          <th scope="row">
+            <%= item.id %>
+          </th>
+          <th>
+            <%= link_to wishlist_item_path(item) do %>
+              <i class="fas fa-info-circle text-success"></i>
+            <% end %>
+            <%= link_to edit_wishlist_item_path(item) do %>
+              <i class="fas fa-edit text-primary"></i>
+            <% end %>
+            <%= link_to wishlist_item_path(item), method: :delete do %>
+              <i class="fas fa-trash text-danger"></i>
+            <% end %>
+          </th>
+          <td><%= item.title %></td>
+          <td><%= item.author %></td>
+          <td><%= number_to_currency(item.target_price) %></td>
+          <td><%= item.priority %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  $(document).ready( function () {
+    $('#wishlist-items-index').DataTable();
+  });
+</script>
