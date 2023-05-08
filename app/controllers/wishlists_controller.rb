@@ -20,7 +20,7 @@ class WishlistsController < ApplicationController
 
     if @wishlist.save
       respond_to do |format|
-        format.html { redirect_to(new_wishlist_path) }
+        format.html { redirect_to(wishlist_path(@wishlist)) }
         flash[:success] = "The wishlist #{@wishlist.title} has been added to your library."
       end
     else

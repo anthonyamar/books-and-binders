@@ -1,6 +1,7 @@
 class WishlistItemsController < ApplicationController
   
   before_action :authenticate_user!
+  before_action :set_wishlist
   before_action :set_wishlist_item, except: [:new, :create]
   before_action :user_must_own_the_wishlist_item, only: [:show, :edit, :update, :destroy]
 
@@ -66,8 +67,12 @@ class WishlistItemsController < ApplicationController
   
   private 
   
+  def set_wishlist
+    @wishlist = Wishlist.find(params[:wishlist_id])
+  end
+  
   def set_wishlist_item
-    @wishlist_item = Wishlist.find(params[:id])
+    @wishlist_item = @wishlist.wishlist_items.find(params[:id])
   end
 
   def wishlist_params

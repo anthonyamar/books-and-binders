@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   
   resources :books
-  resources :wishlists
-  resources :wishlist_items, except: [:index]
+  resources :wishlists do
+    resources :wishlist_items, except: [:index], as: :items
+  end
+  
   
   get '/:username/books', to: "books#public_profile", as: "user_public_profile"
   get '/books/:id/download_md_note', to: "books#download_md_note", as: "book_download_md_note"

@@ -8,13 +8,13 @@
       <p><%= @wishlist.description %></p>
     </div>
     <div>
-      <%= link_to "#", class: "btn btn-success" do %>
+      <%= link_to new_wishlist_item_path(@wishlist), class: "btn btn-success" do %>
         <i class="fas fa-plus"></i> New wish
       <% end %>
-      <%= link_to "#", class: "btn btn-info" do %>
+      <%= link_to edit_wishlist_path(@wishlist), class: "btn btn-info" do %>
         <i class="fas fa-edit"></i>
       <% end %>
-      <%= link_to "#", class: "btn btn-danger" do %>
+      <%= link_to wishlist_path(@wishlist), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} do %>
         <i class="fas fa-trash"></i>
       <% end %>
     </div>
@@ -39,13 +39,13 @@
             <%= item.id %>
           </th>
           <th>
-            <%= link_to wishlist_item_path(item) do %>
+            <%= link_to wishlist_item_path(@wishlist, item) do %>
               <i class="fas fa-info-circle text-success"></i>
             <% end %>
-            <%= link_to edit_wishlist_item_path(item) do %>
+            <%= link_to edit_wishlist_item_path(@wishlist, item) do %>
               <i class="fas fa-edit text-primary"></i>
             <% end %>
-            <%= link_to wishlist_item_path(item), method: :delete do %>
+            <%= link_to wishlist_item_path(@wishlist, item), method: :delete do %>
               <i class="fas fa-trash text-danger"></i>
             <% end %>
           </th>
