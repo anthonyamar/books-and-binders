@@ -13,6 +13,7 @@ fr:
     - "Programmation"
     - "Électronique"
     - "Ingénierie"
+    - "Architecture"
     - "Mathématiques"
     - "Physique"
     - "Rhétorique"
@@ -42,6 +43,8 @@ fr:
     - "Roman XVIIème"
     - "Roman XVIème"
     - "Roman XVème"
+    - "Théâtre"
+    - "Poésie"
     - "Polar"
     - "Science fiction"
     - "Dictionnaire"
@@ -50,6 +53,7 @@ fr:
     - "Catalogue"
     - "Guide"
     - "Récit"
+    - "Photographie"
     - "Autre"
     
     
