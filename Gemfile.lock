@@ -87,6 +87,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.5.2)
+      rails
     erubi (1.12.0)
     execjs (2.8.1)
     faker (3.2.1)
@@ -128,7 +130,11 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
+    nokogiri (1.15.4-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.15.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.3)
@@ -197,6 +203,11 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    sentry-rails (5.10.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.10.0)
+    sentry-ruby (5.10.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     simple_form (5.2.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -242,7 +253,9 @@ GEM
       zip_tricks (>= 4.2.1, < 6.0)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   better_errors (~> 2.1, >= 2.1.1)
@@ -250,6 +263,7 @@ DEPENDENCIES
   byebug
   chartkick
   devise
+  dockerfile-rails (>= 1.5)
   faker
   googlebooks
   listen (>= 3.0.5, < 3.2)
@@ -261,6 +275,8 @@ DEPENDENCIES
   react-rails (~> 2.6)
   rubyzip
   sass-rails (>= 6)
+  sentry-rails (~> 5.10)
+  sentry-ruby (~> 5.10)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
