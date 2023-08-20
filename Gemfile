@@ -3,14 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.3'
 
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 6.1.7'
 gem "nokogiri"
 gem 'pg'
-gem 'puma', '~> 4.1'
-gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 5.4'
+gem 'puma'#, '~> 4.1'
+gem 'sass-rails'#, '>= 6'
+gem 'webpacker'#, '~> 5.4'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem "react-rails", "~> 2.6"
+gem "react-rails"#, "~> 2.6"
 gem "devise"
 gem "faker"
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
