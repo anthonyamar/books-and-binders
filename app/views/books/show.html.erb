@@ -1,7 +1,7 @@
 <% components_path = "books/show_components/" %>
  
 <div class="container-fluid p-5">
-  <% unless @google_book.image_link.nil? %>
+  <% unless @google_book.blank? || @book.isbn.blank? || @google_book&.image_link.blank? %>
     <img src="<%= @google_book.image_link %>" alt="Thumbnail" style="margin: 0 15px 25px 0; float: left; width: 100px;">
   <% end %>
   <%= react_component "book/show/Heading", { book: @book.to_json } %>
