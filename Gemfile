@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.3'
 
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 7.1'
 gem "nokogiri"
 gem 'pg'
 gem 'puma'#, '~> 4.1'
@@ -13,7 +13,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem "react-rails"#, "~> 2.6"
 gem "devise"
 gem "faker"
-gem 'validates_timeliness', '~> 5.0.0.alpha3'
+gem 'validates_timeliness'
 gem "simple_form"
 gem "chartkick"
 gem "rubyzip"
@@ -28,7 +28,7 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -38,5 +38,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "dockerfile-rails", ">= 1.5", :group => :development
 
 gem "sentry-ruby", "~> 5.10"
-
-gem "sentry-rails", "~> 5.10"
